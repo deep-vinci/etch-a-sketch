@@ -1,5 +1,6 @@
 const randomColorValue = () => {
-    return ((Math.random()* 256).toFixed());
+    let max = 256, min = 100;
+    return ((Math.random()* (max - min) + min).toFixed());
 }
 
 // reduces the input number to the lowest possible number that can be done x*x
@@ -23,7 +24,7 @@ const createSketchArea = (numberOfBoxes) => {
 
         box.addEventListener("mouseover", (event) => {
             console.log("mouse over")
-            event.target.style.backgroundColor = `rgb(${randomColorValue()}, ${randomColorValue()}, ${randomColorValue()})`;
+            event.target.style.backgroundColor = `rgb(${randomColorValue()}, ${0}, ${0})`;
         })
     
     }
