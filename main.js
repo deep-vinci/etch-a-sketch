@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }) 
 
     resetSketchArea.addEventListener("click", () => {
-        clearSketchArea(userInput);
+        clearSketchArea(userInput == undefined ? 25 : userInput);
     })
 })
 
