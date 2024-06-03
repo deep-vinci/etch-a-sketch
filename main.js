@@ -42,13 +42,14 @@ window.addEventListener("DOMContentLoaded", () => {
     let boxCountButton = document.querySelector(".controls > button");
     let resetSketchArea = document.querySelector(".controls > button:nth-child(2)");
     // clears the previous sketchArea and creates new one
+    let userInput;
     boxCountButton.addEventListener("click", () => {
-        let userInput = prompt("Input number of blocks");
+        userInput = prompt("Input number of blocks");
         clearSketchArea(userInput);
     }) 
 
     resetSketchArea.addEventListener("click", () => {
-        clearSketchArea(25);
+        clearSketchArea(userInput);
     })
 })
 
