@@ -1,0 +1,55 @@
+const randomColorValue = () => {
+    return ((Math.random()* 256).toFixed());
+}
+
+// reduces the input number to the lowest possible number that can be done x*x
+const getBoxCountEachWays = (numberOfBoxes) => {
+    let boxCountEachWays = Number((Math.sqrt(numberOfBoxes)).toFixed());
+    return boxCountEachWays;
+}
+
+const createSketchArea = (numberOfBoxes) => {
+    let sketchArea = document.querySelector(".sketch-area");
+    let boxCountButton = document.querySelector(".controls > button");
+
+    boxCountButton.textContent = `${getBoxCountEachWays(numberOfBoxes) ** 2} Blocks`;
+
+    for(let i = 0; i < getBoxCountEachWays(numberOfBoxes) **2; i++) {
+        let box = document.createElement("div");
+        box.classList.add("box");
+
+        box.style.flex = `0 0 ${100/getBoxCountEachWays(numberOfBoxes)}%`;
+        sketchArea.appendChild(box)
+
+        box.addEventListener("mouseover", (event) => {
+            console.log("mouse over")
+            event.target.style.backgroundColor = `rgb(${randomColorValue()}, ${randomColorValue()}, ${randomColorValue()})`;
+        })
+    
+    }
+}
+
+const clearSketchArea = (userInput) => {
+    let sketchArea = document.querySelector(".sketch-area");
+    let sketchbox = document.querySelectorAll(".box");
+    sketchbox.forEach(i => {
+        sketchArea.removeChild(i)
+    })
+    createSketchArea(userInput);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    let boxCountButton = document.querySelector(".controls > button");
+    let resetSketchArea = document.querySelector(".controls > button:nth-child(2)");
+    // clears the previous sketchArea and creates new one
+    boxCountButton.addEventListener("click", () => {
+        let userInput = prompt("Input number of blocks");
+        clearSketchArea(userInput);
+    }) 
+
+    resetSketchArea.addEventListener("click", () => {
+        clearSketchArea(25);
+    })
+})
+
+createSketchArea(25)
