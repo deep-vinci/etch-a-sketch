@@ -23,8 +23,11 @@ const createSketchArea = (numberOfBoxes) => {
         sketchArea.appendChild(box)
 
         box.addEventListener("mouseover", (event) => {
-            console.log("mouse over")
+            if (!event.ctrlKey) {
+                console.log("mouse over")
             event.target.style.backgroundColor = `rgb(${randomColorValue()}, ${0}, ${0})`;
+            }
+            
         })
     
     }
