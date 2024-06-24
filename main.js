@@ -8,10 +8,16 @@ const getBoxCountEachWays = (numberOfBoxes) => {
     let boxCountEachWays = Number((Math.sqrt(numberOfBoxes)).toFixed());
     return boxCountEachWays;
 }
+    
 
-const changeBoxRadius = () => {
+const changeBoxRadius = (id, box) => {
     let radiusTopLeft, radiusTopRight, radiusBottomLeft, radiusBottomRight;
-
+    
+    let boxBorderRadius = "15px";
+    
+    if (id === 0) {
+        box.style.borderRadiusTopLeft = boxBorderRadius;
+    }
 }
 
 const createSketchArea = (numberOfBoxes) => {
@@ -25,6 +31,7 @@ const createSketchArea = (numberOfBoxes) => {
         box.classList.add("box");
 
         box.style.flex = `0 0 ${100/getBoxCountEachWays(numberOfBoxes)}%`;
+        changeBoxRadius(i, box);
         sketchArea.appendChild(box)
 
         box.addEventListener("mouseover", (event) => {
