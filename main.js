@@ -9,6 +9,11 @@ const getBoxCountEachWays = (numberOfBoxes) => {
     return boxCountEachWays;
 }
 
+const changeBoxRadius = () => {
+    let radiusTopLeft, radiusTopRight, radiusBottomLeft, radiusBottomRight;
+
+}
+
 const createSketchArea = (numberOfBoxes) => {
     let sketchArea = document.querySelector(".sketch-area");
     let boxCountButton = document.querySelector(".controls > button");
