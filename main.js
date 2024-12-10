@@ -1,6 +1,6 @@
 const randomColorValue = () => {
     let max = 256, min = 100;
-    return ((Math.random()* (max - min) + min).toFixed());
+    return ((Math.random() * (max - min) + min).toFixed());
 }
 
 // reduces the input number to the lowest possible number that can be done x*x
